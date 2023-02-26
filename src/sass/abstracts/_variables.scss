@@ -1,10 +1,29 @@
 //* COLORS
 
 //*> BACKGROUND-COLORS
+$color-bg-primary: #f8f9fa;
+$color-bg-secondary: #1e3a8a;
 
 //*> TEXT-COLORS
+$color-text-primary: #171717;
+$color-text-secondary: #111827;
+$color-text-tertiary: #d0ebff;
 
 //*> BUTTON COLORS
+$color-btn-primary: #d0ebff;
+$color-btn-secondary: #1e3a8a;
+
+//*> BORDER-COLORS
+$color-border-primary: #d0ebff;
+$color-border-secondary: #1e3a8a;
 
 //* FONTS
 $font-inter: 'Inter', sans-serif;
+
+//* BORDER-RADIUS
+$border-medium: 0.6rem;
+$border-big: 1.4rem;
+$border-full: 50%;
+
+//* NAVIGATION-HEIGHT
+$nav-height: 9.6rem;

@@ -1,0 +1,54 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  border: 2px solid transparent;
+  background-color: transparent;
+  font-size: 1.8rem;
+  padding: 1rem 1.8rem;
+  font-family: inherit;
+  font-weight: 500;
+  color: $color-text-tertiary;
+  cursor: pointer;
+  border-radius: $border-medium;
+  transition: all 0.3s;
+
+  &-primary {
+    border-color: transparent;
+    background-color: $color-btn-primary;
+    color: $color-text-secondary;
+
+    &:hover {
+      background-color: $color-btn-secondary;
+      color: $color-text-tertiary;
+    }
+  }
+
+  &-secondary {
+    border-color: transparent;
+    background-color: $color-btn-secondary;
+    color: $color-text-tertiary;
+
+    &:hover {
+      background-color: $color-btn-primary;
+      color: $color-text-secondary;
+    }
+  }
+
+  &-outline-primary {
+    border-color: $color-border-primary;
+  }
+
+  &-outline-secondary {
+    border-color: $color-border-primary;
+  }
+
+  &-rounded {
+    border-radius: $border-big;
+  }
+
+  &-rounded-full {
+    border-radius: $border-full;
+  }
+}

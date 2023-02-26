@@ -1,0 +1,80 @@
+.book-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  border-radius: $border-big;
+  padding: 1.2rem;
+  height: 42rem;
+  transition: all 0.3s;
+  &:hover {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  }
+
+  &-img {
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba($color: $color-border-secondary, $alpha: 0.25);
+    border-radius: $border-big;
+    transition: all 0.3s;
+    & img {
+      height: 18rem;
+    }
+  }
+
+  &:hover &-img {
+    border-color: rgba($color: $color-border-secondary, $alpha: 0);
+  }
+
+  &-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    border-top: 2px solid rgba($color: $color-border-secondary, $alpha: 0);
+    padding-top: 1rem;
+    transition: all 0.3s;
+
+    &-title {
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    &-authors {
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+    & i &-publisher {
+      font-size: 1.2rem;
+    }
+  }
+
+  &:hover &-details {
+    border-color: rgba($color: $color-border-secondary, $alpha: 0.25);
+  }
+
+  &-btn {
+    opacity: 0;
+  }
+  &:hover &-btn {
+    opacity: 1;
+  }
+}
+
+// LAZY LOADING
+
+.LazyLoad {
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  height: 18rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.is-visible {
+  opacity: 1;
+}

@@ -1,0 +1,22 @@
+.go-top {
+  z-index: 99;
+  position: fixed;
+  bottom: 4rem;
+  right: 4rem;
+  height: 5.6rem;
+  width: 5.6rem;
+  padding: 0;
+  font-size: 2.8rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  will-change: transform;
+  transform: translateX(200%);
+
+  &.visible {
+    transform: translateX(0);
+
+    &:hover {
+      transform: translateY(-0.4rem) scale(1.03);
+    }
+  }
+}

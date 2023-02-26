@@ -1,0 +1,47 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: $nav-height;
+  padding: 3.2rem 4rem;
+  background-color: $color-bg-secondary;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+
+  &-logo {
+    font-size: 2.8rem;
+    font-weight: 500;
+    color: $color-text-tertiary;
+    text-decoration: none;
+    transition: all 0.3s;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &-categories {
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: $color-text-tertiary;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    transition: all 0.3s;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &-buttons {
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+  }
+}

@@ -1,0 +1,50 @@
+.book-card-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  border-radius: $border-big;
+  padding: 1.2rem;
+  height: 42rem;
+  background-color: #ececec;
+  transition: all 0.3s;
+
+  &-img {
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $border-big;
+    transition: all 0.3s;
+    height: 22.4rem;
+  }
+
+  &-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding-top: 1rem;
+    transition: all 0.3s;
+
+    &-title {
+      font-size: 1.8rem;
+      border-radius: $border-big;
+    }
+
+    &-authors {
+      font-size: 1.4rem;
+      font-weight: 400;
+      border-radius: $border-big;
+      width: 14rem;
+    }
+    &-publisher {
+      font-size: 1.2rem;
+      border-radius: $border-big;
+      width: 12rem;
+    }
+  }
+
+  &-btn {
+    height: 4.6rem;
+    border-radius: $border-big;
+  }
+}

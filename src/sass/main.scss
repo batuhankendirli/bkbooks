@@ -7,4 +7,12 @@
 @import './base/typography';
 @import './base/utilities';
 
+@import './components/book-card';
+@import './components/book-card-skeleton';
+@import './components/button';
+@import './components/go-top';
+@import './components/search';
+
+@import './layout/navbar';
+
 @import './pages/home';
