@@ -1,0 +1,65 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  padding: 2.4rem;
+  margin-top: 4rem;
+  border-top: 2px solid rgba($color: $color-border-secondary, $alpha: 0.1);
+  &-social {
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+    justify-content: center;
+
+    & a {
+      color: inherit;
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+
+      &:hover {
+        border-color: rgba($color: $color-border-secondary, $alpha: 0.35);
+      }
+    }
+
+    &-logo {
+      font-size: 2.8rem;
+      color: $color-border-secondary;
+    }
+  }
+
+  & span {
+    font-size: 1.6rem;
+  }
+  &-author {
+    font-size: 2rem;
+    font-family: inherit;
+    font-weight: 400;
+    color: $color-border-secondary;
+    text-decoration: none;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0px;
+      height: 2px;
+      background-color: rgba($color: $color-border-secondary, $alpha: 0.35);
+      transform: translateX(-50%);
+      transition: all 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
