@@ -8,14 +8,14 @@ const BookCard = ({ data }: { data: BookProps }) => {
     <div className="book-card">
       <Link to={`/book/${data.id}`} className="book-card-img">
         <LazyLoad height={180} threshold={0.35}>
-          <img src={data.volumeInfo.imageLinks.smallThumbnail} alt={`Cover image of ${data.volumeInfo.title}`} />
+          <img src={data.volumeInfo.imageLinks?.thumbnail} alt={`Cover image of ${data.volumeInfo.title}`} />
         </LazyLoad>
       </Link>
       <div className="book-card-details">
         <Link to={`/book/${data.id}`} className="book-card-details-title truncate">
           {data.volumeInfo.title}
         </Link>
-        <p className="book-card-details-authors truncate">{data.volumeInfo.authors.join(', ')}</p>
+        <p className="book-card-details-authors truncate">{data.volumeInfo.authors?.join(', ')}</p>
         <i>
           <p className="book-card-details-publisher">{data.volumeInfo.publisher}</p>
         </i>

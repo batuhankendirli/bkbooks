@@ -33,7 +33,7 @@ const BookSlider = ({ category }: { category: string }) => {
                       publisher: 'Something',
                       title: 'Test test test',
                       imageLinks: {
-                        smallThumbnail:
+                        thumbnail:
                           'https://publications.iarc.fr/uploads/media/default/0001/02/thumb_1203_default_publication.jpeg',
                       },
                     },

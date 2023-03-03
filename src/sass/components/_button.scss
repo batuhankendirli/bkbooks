@@ -36,6 +36,26 @@
     }
   }
 
+  &-tertiary {
+    border-color: transparent;
+    background-color: $color-btn-tertiary;
+    color: $color-text-fifth;
+    flex: 1;
+    &:hover {
+      background-color: $color-btn-tertiary-hover;
+    }
+  }
+
+  &-fourth {
+    border-color: transparent;
+    background-color: $color-btn-fourth;
+    color: $color-text-fifth;
+    flex: 1;
+    &:hover {
+      background-color: $color-btn-fourth-hover;
+    }
+  }
+
   &-outline-primary {
     border-color: $color-border-primary;
   }

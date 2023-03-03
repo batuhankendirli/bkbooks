@@ -1,0 +1,104 @@
+[
+  {
+    "kind": "books#volume",
+    "id": "8RhKDwAAQBAJ",
+    "etag": "X6WQSggMZ0A",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/8RhKDwAAQBAJ",
+    "volumeInfo": {
+      "title": "Progressive Web Apps with React",
+      "subtitle": "Create lightning fast web apps with native power using React and Firebase",
+      "authors": ["Scott Domes"],
+      "publisher": "Packt Publishing Ltd",
+      "publishedDate": "2017-10-24",
+      "description": "<p><b>Enhance the performance of your applications by using React and adding the Progressive web app capability to it</b></p>About This BookBring the best of mobile sites and native apps to your users with progressive web applicationsCreate fast, reliable, and engaging PWAs with React and FirebaseCreate high-performance applications even with low connection speeds by leveraging modern web technologiesWho This Book Is For<p>This book is for Javascript Developers who want to develop high performance Web User Interfaces. This book requires basic knowledge of HTML, CSS and JavaScript.</p>What You Will LearnSet up Webpack configuration, as well as get the development server runningLearn basic Firebase configuration and deploymentCreate routes, manage multiple components, and learn how to use React Router v4 to manage the flow of dataUse React life cycle methods to load dataAdd a service worker to the app and learn how it worksUse a service worker to send Push NotificationsConfigure Webpack to split up the JavaScript bundle and lazy load component filesLearn how to use the web Cache API to use your app offlineAudit PWAs with Google's Lighthouse toolIn Detail<p>For years, the speed and power of web apps has lagged behind native applications. Progressive Web Apps (PWAs) aim to solve this by bridging the gap between the web apps and native apps, delivering a host of exciting features. Simultaneously, React is fast becoming the go-to solution for building modern web UIs, combining ease of development with performance and capability. Using React alongside PWA technology will make it easy for you to build a fast, beautiful, and functional web app.</p><p>After an introduction and brief overview of the goals of PWAs, the book moves on to setting up the application structure. From there, it covers the Webpack build process and the process of creating React components. You'll learn how to set up the backend database and authentication solution to communicate with Firebase and how to work with React Router. Next, you will create and configure your web app manifest, making your PWA installable on mobile devices. Then you'll get introduced to service workers and see how they work as we configure the app to send push notifications using Firebase Cloud Messaging. We'll also explore the App Shell pattern, a key concept in PWAs and look at its advantages regarding efficient performance. Finally, you'll learn how to add offline capabilities to the app with caching and confirm your progress by auditing your PWA with Lighthouse. Also, you'll discover helper libraries and shortcuts that will help you save time and understand the future of PWA development.</p>Style and approach<p>This is a step-by-step book, wherein, you will use the React framework to create a complete progressive web app.</p>",
+      "industryIdentifiers": [
+        {
+          "type": "ISBN_10",
+          "identifier": "1788296133"
+        },
+        {
+          "type": "ISBN_13",
+          "identifier": "9781788296137"
+        }
+      ],
+      "readingModes": {
+        "text": true,
+        "image": true
+      },
+      "pageCount": 302,
+      "printedPageCount": 294,
+      "printType": "BOOK",
+      "categories": ["Computers / Internet / Web Services & APIs", "Computers / Internet / Web Design"],
+      "maturityRating": "NOT_MATURE",
+      "allowAnonLogging": false,
+      "contentVersion": "2.2.4.0.preview.3",
+      "panelizationSummary": {
+        "containsEpubBubbles": false,
+        "containsImageBubbles": false
+      },
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/publisher/content?id=8RhKDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE70-G8j6ccKh_ccHzLpBSnIcrKpRaB86g6SW6HAGRM13CHyAnV9WdbhHrBl6GSgSYbjDRH1q3QUMPMuOSwl_iTRciTpOR-sWfyqIm5zi1uBuMnMTBkNLGjP6HWFvjuPuqDbhMqtn&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/publisher/content?id=8RhKDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE73heZUUFitAcr2sY0t0vcpL-9avtYG7vrignqPTeQwf4Va_3s7N5OQQjqNM-BPDRtK1vccwjtHqdCigbDo9KjI2UyvL5ZTyNsxrwFh5zkdXV-pMLjUzeMP7TAhGSGFZYlcJsecK&source=gbs_api",
+        "small": "http://books.google.com/books/publisher/content?id=8RhKDwAAQBAJ&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE70YAbF40C5c2Y4J0D0JfCAk60tHSlGB9CvMkbMWoHGBueP1Skyec0UFqNM5HeoUbumMwDKDjhrgbwo8CBHhe600PmVlgxW-czXMe-AtYWw1-o0jL7U_X2jnb2PaP5ag3RZ-OTuQ&source=gbs_api",
+        "medium": "http://books.google.com/books/publisher/content?id=8RhKDwAAQBAJ&printsec=frontcover&img=1&zoom=3&edge=curl&imgtk=AFLRE73oJjO8Fwm2iqGoVRdq7M3KIdtz2cCnTGVY5MdAxt4eep7c_acdm_JybKby4BHv4iGK7ktCwHYULaAT9XXUi3ZD4ekOLun3SXB0IL-c1uR_DJ1eytGvtjyZ7nq3bQsSF-o4O7dF&source=gbs_api",
+        "large": "http://books.google.com/books/publisher/content?id=8RhKDwAAQBAJ&printsec=frontcover&img=1&zoom=4&edge=curl&imgtk=AFLRE731xpor5EM-bJYZw9yreCDE_7bssTFPfevbb7v-MrMiASBTFa7g5ozySN_Oa5hxA5eK_sYERQJkP5PpMul4TSJw3etKLBVljbALmsRWoWBVhK9KNpU_lg8xd_KnboVsLikmsOCx&source=gbs_api",
+        "extraLarge": "http://books.google.com/books/publisher/content?id=8RhKDwAAQBAJ&printsec=frontcover&img=1&zoom=6&edge=curl&imgtk=AFLRE72-XSQ6AmDFF10tOpPdMRrAIRHZTxwhWVPNHdszmpAIRn9U_mD1pRLBRV7ouomoINk16pktiOtwwNycQ3n-ZlnhoJQ2B0-XqJqXaljh092Wepv53Hjh3KE80q7za0YWKPzAKMn0&source=gbs_api"
+      },
+      "language": "en",
+      "previewLink": "http://books.google.com.tr/books?id=8RhKDwAAQBAJ&hl=&source=gbs_api",
+      "infoLink": "https://play.google.com/store/books/details?id=8RhKDwAAQBAJ&source=gbs_api",
+      "canonicalVolumeLink": "https://play.google.com/store/books/details?id=8RhKDwAAQBAJ"
+    },
+    "layerInfo": {
+      "layers": [
+        {
+          "layerId": "geo",
+          "volumeAnnotationsVersion": "5"
+        }
+      ]
+    },
+    "saleInfo": {
+      "country": "TR",
+      "saleability": "FOR_SALE",
+      "isEbook": true,
+      "listPrice": {
+        "amount": 657.52,
+        "currencyCode": "TRY"
+      },
+      "retailPrice": {
+        "amount": 460.26,
+        "currencyCode": "TRY"
+      },
+      "buyLink": "https://play.google.com/store/books/details?id=8RhKDwAAQBAJ&rdid=book-8RhKDwAAQBAJ&rdot=1&source=gbs_api",
+      "offers": [
+        {
+          "finskyOfferType": 1,
+          "listPrice": {
+            "amountInMicros": 657520000,
+            "currencyCode": "TRY"
+          },
+          "retailPrice": {
+            "amountInMicros": 460260000,
+            "currencyCode": "TRY"
+          }
+        }
+      ]
+    },
+    "accessInfo": {
+      "country": "TR",
+      "viewability": "PARTIAL",
+      "embeddable": true,
+      "publicDomain": false,
+      "textToSpeechPermission": "ALLOWED",
+      "epub": {
+        "isAvailable": true
+      },
+      "pdf": {
+        "isAvailable": true
+      },
+      "webReaderLink": "http://play.google.com/books/reader?id=8RhKDwAAQBAJ&hl=&source=gbs_api",
+      "accessViewStatus": "SAMPLE",
+      "quoteSharingAllowed": false
+    }
+  }
+]

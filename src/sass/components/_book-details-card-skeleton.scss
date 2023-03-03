@@ -1,0 +1,68 @@
+.details-skeleton {
+  &-title {
+    margin-bottom: 2rem;
+    width: 40rem;
+    font-size: 2em;
+    line-height: inherit;
+  }
+  &-container {
+    background-color: #ececec;
+    display: flex;
+    gap: 6.4rem;
+    padding: 3.4rem;
+    border-radius: $border-medium;
+    &-left {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 1.6rem;
+
+      &-img {
+        height: 29.8rem;
+        border-radius: $border-medium;
+      }
+      &-button {
+        height: 4.6rem;
+        border-radius: $border-medium;
+      }
+    }
+
+    &-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      flex: 3;
+      justify-content: space-between;
+
+      &-header {
+        width: 20rem;
+        font-size: 1.4rem;
+        margin-bottom: 0.6rem;
+        border-radius: $border-medium;
+      }
+      &-text {
+        width: 35rem;
+        font-size: 1.2rem;
+        border-radius: $border-medium;
+      }
+      &-p {
+        font-size: 1.2rem;
+        border-radius: $border-medium;
+      }
+
+      &-buttons {
+        display: flex;
+        gap: 2.4rem;
+        &-button {
+          height: 4.6rem;
+          width: 18.7rem;
+          border-radius: $border-medium;
+        }
+      }
+    }
+  }
+}
+
+.skeleton-container {
+  display: flex;
+}
