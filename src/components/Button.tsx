@@ -19,6 +19,7 @@ const Button = ({
     'button-fourth': fourth,
     'button-rounded': rounded,
     'button-rounded-full': roundedFull,
+    'button-outline': outline,
     'button-outline-primary': outline && primary,
     'button-outline-secondary': outline && secondary,
   });

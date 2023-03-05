@@ -5,7 +5,7 @@ import BookCardSkeleton from '../components/BookCardSkeleton';
 const Home = () => {
   return (
     <div className="section-home section-mt">
-      <Search placeholder="Search your favorite books..." />
+      <Search placeholder="Search your favorite books..." advanced />
       <div className="books-wrapper">
         {Array(40)
           .fill(0)

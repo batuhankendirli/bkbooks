@@ -50,3 +50,17 @@ export type BookDetailsProps = {
     };
   };
 } & BookProps;
+
+export type ModalRefProps = {
+  open: () => boolean;
+  close: () => boolean;
+};
+
+export type LoginSignupFormProps = {
+  title: string;
+  switchTitle: () => void;
+};
+
+export type SearchProps = {
+  advanced?: boolean;
+} & ComponentPropsWithoutRef<'input'>;

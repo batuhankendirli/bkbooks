@@ -21,11 +21,72 @@
       color: rgba($color: $color-text-primary, $alpha: 0.35);
     }
   }
+
+  &-select {
+    font-family: inherit;
+    font-size: 1.6rem;
+    color: inherit;
+    padding: 0.4rem 0.6rem;
+    background-color: transparent;
+    border-radius: $border-medium;
+    border: 2px solid rgba($color: $color-border-secondary, $alpha: 0.35);
+
+    &:focus {
+      outline: none;
+      border-color: rgba($color: $color-border-secondary, $alpha: 0.7);
+    }
+
+    &-option {
+    }
+  }
+
   &-icon {
     font-size: 3.2rem;
     color: $color-border-secondary;
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 1.6rem;
+
+    &-search,
+    &-filter {
+      cursor: pointer;
+    }
+  }
+}
+
+.filters {
+  position: absolute;
+  top: 0;
+  left: 3.6rem;
+  background-color: $color-bg-primary;
+  padding: 1.2rem;
+  width: 20rem;
+  border-radius: $border-big;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  display: none;
+  &.show {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    &-label {
+      font-size: 1.2rem;
+      font-weight: 500;
+      font-family: inherit;
+    }
+    &-select {
+      background-color: transparent;
+      padding: 0.4rem 0.6rem;
+      font-family: inherit;
+      border: 1px solid rgba($color: $color-border-secondary, $alpha: 0.35);
+      border-radius: $border-medium;
+      font-size: 1.4rem;
+    }
   }
 }

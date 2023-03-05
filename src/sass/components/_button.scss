@@ -4,7 +4,7 @@
   justify-content: center;
   gap: 1rem;
   border: 2px solid transparent;
-  background-color: transparent;
+  background-color: $color-btn-secondary;
   font-size: 1.8rem;
   padding: 1rem 1.8rem;
   font-family: inherit;
@@ -13,6 +13,16 @@
   cursor: pointer;
   border-radius: $border-medium;
   transition: all 0.3s;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:hover:disabled {
+    background-color: $color-btn-primary;
+    color: $color-text-primary;
+  }
 
   &-primary {
     border-color: transparent;
@@ -53,6 +63,15 @@
     flex: 1;
     &:hover {
       background-color: $color-btn-fourth-hover;
+    }
+  }
+
+  &-outline {
+    border: 2px solid transparent;
+    transition: all 0.3s;
+
+    &:hover {
+      border-color: $color-border-primary;
     }
   }
 

@@ -1,0 +1,152 @@
+.modal-backdrop {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 9998;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  @supports (backdrop-filter: brightness(25%) blur(7px)) or (-webkit-backdrop-filter: brightness(25%) blur(7px)) {
+    background-color: transparent;
+    backdrop-filter: brightness(25%) blur(7px);
+    -webkit-backdrop-filter: brightness(25%) blur(7px);
+  }
+}
+
+.modal-content {
+  z-index: 9999;
+  position: fixed;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: $color-bg-primary;
+  padding: 2.4rem;
+  padding-top: 4rem;
+  border-radius: $border-medium;
+
+  &-login {
+    width: 45rem;
+    height: 50rem;
+  }
+
+  &-icon {
+    font-size: 2.8rem;
+    color: inherit;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.modal-login {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
+  &-title {
+    font-size: 3.2rem;
+    align-self: center;
+  }
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    &-label {
+      font-size: 1.4rem;
+      font-weight: 400;
+      font-family: inherit;
+      color: inherit;
+    }
+
+    &-input {
+      border: 2px solid rgba($color: $color-border-secondary, $alpha: 0.35);
+      border-radius: $border-medium;
+      padding: 1rem;
+      font-size: 1.6rem;
+      font-family: inherit;
+      color: inherit;
+    }
+
+    &-forgot {
+      align-self: end;
+      border: none;
+      font-size: 1.4rem;
+      font-family: inherit;
+      color: $color-border-secondary;
+      background-color: transparent;
+      font-weight: 400;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -0.1rem;
+        left: 50%;
+        width: 0px;
+        height: 1px;
+        transform: translateX(-50%);
+        background-color: $color-border-secondary;
+        transition: all 0.3s;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+      &:hover::after {
+        width: 100%;
+      }
+    }
+
+    &-alternative {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      &-text {
+        font-size: 1.2rem;
+        font-weight: 400;
+      }
+      &-button {
+        border: none;
+        font-family: inherit;
+        color: rgba($color: $color-border-secondary, $alpha: 1);
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        background-color: transparent;
+        position: relative;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -0.2rem;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 0px;
+          height: 2px;
+          background-color: rgba($color: $color-border-secondary, $alpha: 1);
+          transition: all 0.3s;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

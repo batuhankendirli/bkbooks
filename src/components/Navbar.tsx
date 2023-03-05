@@ -1,7 +1,28 @@
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ModalRefProps } from '../Types';
 import Button from './Button';
+import LoginSignupForm from './LoginSignupForm';
+import Modal from './Modal';
 
 const Navbar = () => {
+  const modalRef = useRef<ModalRefProps>(null);
+  const [title, setTitle] = useState('');
+
+  const handleLogin = () => {
+    setTitle('Log in');
+    modalRef.current?.open();
+  };
+
+  const handleSignUp = () => {
+    setTitle('Sign up');
+    modalRef.current?.open();
+  };
+
+  const handleSwitch = () => {
+    setTitle((prevTitle) => (prevTitle === 'Log in' ? 'Sign up' : 'Log in'));
+  };
+
   return (
     <nav className="navigation">
       <Link to="/" className="navigation-logo">
@@ -11,13 +32,16 @@ const Navbar = () => {
         Categories
       </Link>
       <div className="navigation-buttons">
-        <Button secondary outline>
+        <Button outline onClick={handleLogin}>
           Log in
         </Button>
-        <Button primary outline>
+        <Button primary outline onClick={handleSignUp}>
           Sign up
         </Button>
       </div>
+      <Modal ref={modalRef} login>
+        <LoginSignupForm title={title} switchTitle={handleSwitch} />
+      </Modal>
     </nav>
   );
 };
