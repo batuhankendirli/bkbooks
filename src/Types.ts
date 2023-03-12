@@ -1,3 +1,4 @@
+import { SerializedError } from '@reduxjs/toolkit';
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
 
 export type ButtonProps = {
@@ -23,6 +24,11 @@ export type BookProps = {
   };
 };
 
+export type Price = {
+  amount?: number;
+  currencyCode?: string;
+};
+
 export type BookDetailsProps = {
   volumeInfo: {
     publishedDate?: string;
@@ -34,14 +40,8 @@ export type BookDetailsProps = {
   };
   saleInfo: {
     saleability: string;
-    listPrice?: {
-      amount?: number;
-      currencyCode?: string;
-    };
-    retailPrice?: {
-      amount?: number;
-      currencyCode?: string;
-    };
+    listPrice: Price | undefined;
+    retailPrice: Price | undefined;
     buyLink?: string;
   };
   accessInfo: {
@@ -63,4 +63,15 @@ export type LoginSignupFormProps = {
 
 export type SearchProps = {
   advanced?: boolean;
+  handleSave?: () => void;
 } & ComponentPropsWithoutRef<'input'>;
+
+export type InitialState = {
+  books: BookProps[];
+  searchTerm: string;
+  findBy: string;
+  printType: string;
+  orderBy: string;
+  isLoading: boolean;
+  error: SerializedError | null;
+};

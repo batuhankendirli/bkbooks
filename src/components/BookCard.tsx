@@ -20,7 +20,7 @@ const BookCard = ({ data }: { data: BookProps }) => {
         </Link>
         <p className="book-card-details-authors truncate">{data.volumeInfo.authors?.join(', ')}</p>
         <i>
-          <p className="book-card-details-publisher">{data.volumeInfo.publisher}</p>
+          <p className="book-card-details-publisher truncate">{data.volumeInfo.publisher}</p>
         </i>
       </div>
 

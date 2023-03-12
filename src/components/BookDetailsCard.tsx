@@ -7,12 +7,34 @@ import ReadMore from 'read-more-less-react';
 import 'read-more-less-react/dist/index.css';
 
 const BookDetailsCard = (data: BookDetailsProps) => {
-  const priceText =
+  let discountedAmunt: number | null = null;
+  let listAmount: number | null = null;
+
+  if (data.saleInfo.listPrice && data.saleInfo.retailPrice) {
+    discountedAmunt = data.saleInfo.retailPrice.amount;
+    listAmount = data.saleInfo.listPrice.amount;
+  }
+
+  let hasDiscount: boolean = false;
+
+  if (discountedAmunt && listAmount) {
+    hasDiscount = listAmount > discountedAmunt;
+  }
+
+  let priceText: string | null = null;
+
+  if (discountedAmunt && listAmount) {
+    priceText = hasDiscount
+      ? `${data.saleInfo.retailPrice?.currencyCode} ${data.saleInfo.retailPrice?.amount}`
+      : `${data.saleInfo.listPrice?.currencyCode} ${data.saleInfo.listPrice?.amount}`;
+  }
+
+  /* const priceText =
     data.saleInfo.listPrice?.amount && data.saleInfo.retailPrice?.amount
       ? data.saleInfo.listPrice?.amount > data.saleInfo.retailPrice?.amount
         ? `${data.saleInfo.retailPrice?.currencyCode} ${data.saleInfo.retailPrice?.amount}`
         : `${data.saleInfo.listPrice?.currencyCode} ${data.saleInfo.listPrice?.amount}`
-      : '';
+      : ''; */
 
   return (
     <div className="details">

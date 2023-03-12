@@ -5,8 +5,9 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 
 import { FreeMode } from 'swiper';
+import { BookProps } from '../Types';
 
-const BookSlider = ({ category }: { category: string }) => {
+const BookSlider = ({ category, data }: { category: string; data: BookProps[] }) => {
   return (
     <div className="book-slider">
       <h1 className="book-slider-header">{category}</h1>
@@ -20,28 +21,25 @@ const BookSlider = ({ category }: { category: string }) => {
           padding: '1.2rem .8rem',
         }}
       >
-        {Array(10)
-          .fill(0)
-          .map((_, index) => {
-            return (
-              <SwiperSlide className="book-slider-slide" key={index}>
-                <BookCard
-                  data={{
-                    id: String(index),
-                    volumeInfo: {
-                      authors: ['Batuhan Kendirli', 'Batuhan Kendirli'],
-                      publisher: 'Something',
-                      title: 'Test test test',
-                      imageLinks: {
-                        thumbnail:
-                          'https://publications.iarc.fr/uploads/media/default/0001/02/thumb_1203_default_publication.jpeg',
-                      },
+        {data.map((book, index) => {
+          return (
+            <SwiperSlide className="book-slider-slide" key={book.id}>
+              <BookCard
+                data={{
+                  id: book.id,
+                  volumeInfo: {
+                    authors: book.volumeInfo.authors,
+                    publisher: book.volumeInfo.publisher,
+                    title: book.volumeInfo.title,
+                    imageLinks: {
+                      thumbnail: book.volumeInfo.imageLinks?.thumbnail,
                     },
-                  }}
-                />
-              </SwiperSlide>
-            );
-          })}
+                  },
+                }}
+              />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );
