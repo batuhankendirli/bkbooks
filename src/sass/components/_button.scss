@@ -19,17 +19,12 @@
     cursor: not-allowed;
   }
 
-  &:hover:disabled {
-    background-color: $color-btn-primary;
-    color: $color-text-primary;
-  }
-
   &-primary {
     border-color: transparent;
     background-color: $color-btn-primary;
     color: $color-text-secondary;
 
-    &:hover {
+    &:hover:not([disabled]) {
       background-color: $color-btn-secondary;
       color: $color-text-tertiary;
     }
@@ -40,7 +35,7 @@
     background-color: $color-btn-secondary;
     color: $color-text-tertiary;
 
-    &:hover {
+    &:hover:not([disabled]) {
       background-color: $color-btn-primary;
       color: $color-text-secondary;
     }
@@ -50,8 +45,8 @@
     border-color: transparent;
     background-color: $color-btn-tertiary;
     color: $color-text-fifth;
-    flex: 1;
-    &:hover {
+    // width: 100%;
+    &:hover:not([disabled]) {
       background-color: $color-btn-tertiary-hover;
     }
   }
@@ -60,7 +55,7 @@
     border-color: transparent;
     background-color: $color-btn-fourth;
     color: $color-text-fifth;
-    flex: 1;
+    // width: 100%;
     &:hover {
       background-color: $color-btn-fourth-hover;
     }
@@ -70,7 +65,7 @@
     border: 2px solid transparent;
     transition: all 0.3s;
 
-    &:hover {
+    &:hover:not([disabled]) {
       border-color: $color-border-primary;
     }
   }

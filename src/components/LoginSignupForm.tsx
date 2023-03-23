@@ -1,8 +1,41 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { registerUser, resetPassword, signInUser } from '../store/thunks/firebase';
 import { LoginSignupFormProps } from '../Types';
 import Button from './Button';
+import Loader from './Loader';
 
-const LoginSignupForm = ({ title, switchTitle }: LoginSignupFormProps) => {
+const LoginSignupForm = ({ title, switchTitle, handleSuccess }: LoginSignupFormProps) => {
+  const [email, setEmail] = useState<string>('');
+  const [loading, setLoading] = useState(false);
+  const [password, setPassword] = useState<string>('');
+  const [disabled, setDisabled] = useState(true);
+
+  const handleChange = ({ text, type }: { text: string; type: string }) => {
+    type === 'email' ? setEmail(text) : setPassword(text);
+    setDisabled(!email || password.length < 5 ? true : false);
+  };
+
+  const handleSubmit = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    setDisabled(true);
+    setLoading(true);
+    const user = title === 'Log in' ? await signInUser({ email, password }) : await registerUser({ email, password });
+    setLoading(false);
+    setDisabled(false);
+    if (user) handleSuccess();
+  };
+
+  const handleSwitch = () => {
+    switchTitle();
+    setEmail('');
+    setPassword('');
+  };
+
+  const handlePasswordReset = async () => {
+    await resetPassword(email);
+  };
+
   return (
     <motion.form
       className="modal-login"
@@ -32,6 +65,8 @@ const LoginSignupForm = ({ title, switchTitle }: LoginSignupFormProps) => {
           name="email"
           id="email"
           className="modal-login-container-input"
+          value={email}
+          onChange={(e) => handleChange({ text: e.target.value, type: 'email' })}
         />
       </div>
       <div className="modal-login-container">
@@ -44,31 +79,34 @@ const LoginSignupForm = ({ title, switchTitle }: LoginSignupFormProps) => {
           name="password"
           id="password"
           className="modal-login-container-input"
+          value={password}
+          onChange={(e) => handleChange({ text: e.target.value, type: 'password' })}
         />
       </div>
       {title == 'Log in' && (
-        <button type="button" className="modal-login-container-forgot">
+        <button type="button" className="modal-login-container-forgot" onClick={handlePasswordReset}>
           Forgot password?
         </button>
       )}
 
       <Button
-        disabled
+        disabled={disabled}
         type="submit"
         primary
         style={{
           alignSelf: 'center',
           textTransform: 'uppercase',
         }}
+        onClick={handleSubmit}
       >
-        {title}
+        {loading ? <Loader /> : title}
       </Button>
 
       <div className="modal-login-container-alternative">
         <p className="modal-login-container-alternative-text">
           {title === 'Log in' ? "Don't" : 'Already'} have an account?
         </p>
-        <button type="button" className="modal-login-container-alternative-button" onClick={switchTitle}>
+        <button type="button" className="modal-login-container-alternative-button" onClick={handleSwitch}>
           {title === 'Log in' ? 'Sign up' : 'Log in'}
         </button>
       </div>

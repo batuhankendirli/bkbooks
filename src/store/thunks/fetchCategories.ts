@@ -12,8 +12,8 @@ type FetchParams = {
   maxResults?: number;
 };
 
-const fetchBooks = createAsyncThunk(
-  'books/fetch',
+const fetchCategories = createAsyncThunk(
+  'categories/fetch',
   async ({
     query,
     findBy = 'intitle',
@@ -32,4 +32,4 @@ const fetchBooks = createAsyncThunk(
   }
 );
 
-export { fetchBooks };
+export { fetchCategories };

@@ -59,6 +59,7 @@ export type ModalRefProps = {
 export type LoginSignupFormProps = {
   title: string;
   switchTitle: () => void;
+  handleSuccess: () => void;
 };
 
 export type SearchProps = {

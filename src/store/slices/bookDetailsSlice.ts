@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import { BookDetailsProps } from '../../Types';
 import { fetchBookDetails } from '../thunks/fetchBookDetails';
 
-const initialState: { book: BookDetailsProps[]; isLoading: boolean } = {
-  book: [],
+const initialState: { book: BookDetailsProps | null; isLoading: boolean } = {
+  book: null,
   isLoading: false,
 };
 

@@ -24,8 +24,14 @@ const homePageSlice = createSlice({
       action.payload.length >= 3 ? (state.books = []) : null;
       state.searchTerm = action.payload;
     },
+    clearSearchTerm: (state) => {
+      state.searchTerm = '';
+    },
     changePrintType: (state, action) => {
       state.printType = action.payload;
+    },
+    resetBooks: (state) => {
+      state.books = [];
     },
     changeOrderBy: (state, action) => {
       state.orderBy = action.payload;
@@ -49,6 +55,13 @@ const homePageSlice = createSlice({
   },
 });
 
-export const { changeFindType, changeSearchTerm, changeOrderBy, changePrintType, filterResults } =
-  homePageSlice.actions;
+export const {
+  changeFindType,
+  changeSearchTerm,
+  changeOrderBy,
+  changePrintType,
+  filterResults,
+  clearSearchTerm,
+  resetBooks,
+} = homePageSlice.actions;
 export const homePageReducer = homePageSlice.reducer;

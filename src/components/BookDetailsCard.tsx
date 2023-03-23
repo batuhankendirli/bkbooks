@@ -1,12 +1,35 @@
 import { Link } from 'react-router-dom';
-import { BookDetailsProps } from '../Types';
+import { BookDetailsProps, BookProps } from '../Types';
 import { FaGooglePlay } from 'react-icons/fa';
 import { SiAdobeacrobatreader } from 'react-icons/si';
 import Button from './Button';
 import ReadMore from 'read-more-less-react';
 import 'read-more-less-react/dist/index.css';
+import { useEffect, useState } from 'react';
+import { useAppSelector } from '../store/hooks';
+import { addBook, removeBook } from '../store/thunks/firebase';
+import { toast } from 'react-toastify';
 
 const BookDetailsCard = (data: BookDetailsProps) => {
+  const [buttonType, setButtonType] = useState<string>('Add to My Books');
+  const { uid, savedBooks } = useAppSelector((state) => state.user);
+  useEffect(() => {
+    savedBooks?.some((book) => book.id === data.id)
+      ? setButtonType('Remove from My Books')
+      : setButtonType('Add to My Books');
+  }, [savedBooks]);
+
+  const handleClick = async (data: BookProps) => {
+    if (uid) {
+      buttonType === 'Add to My Books' ? await addBook(data) : await removeBook(data);
+    } else {
+      toast.error('Hold it right there! You should log in first.', {
+        autoClose: 5000,
+        toastId: 'login',
+      });
+    }
+  };
+
   let discountedAmunt: number | null = null;
   let listAmount: number | null = null;
 
@@ -29,13 +52,6 @@ const BookDetailsCard = (data: BookDetailsProps) => {
       : `${data.saleInfo.listPrice?.currencyCode} ${data.saleInfo.listPrice?.amount}`;
   }
 
-  /* const priceText =
-    data.saleInfo.listPrice?.amount && data.saleInfo.retailPrice?.amount
-      ? data.saleInfo.listPrice?.amount > data.saleInfo.retailPrice?.amount
-        ? `${data.saleInfo.retailPrice?.currencyCode} ${data.saleInfo.retailPrice?.amount}`
-        : `${data.saleInfo.listPrice?.currencyCode} ${data.saleInfo.listPrice?.amount}`
-      : ''; */
-
   return (
     <div className="details">
       <h1 className="details-title">
@@ -55,7 +71,7 @@ const BookDetailsCard = (data: BookDetailsProps) => {
           <div className="details-container-left-buttons">
             {data.saleInfo.saleability !== 'NOT_FOR_SALE' && data.saleInfo.buyLink && (
               <Link to={data.saleInfo.buyLink} target="_blank">
-                <Button tertiary>
+                <Button tertiary style={{ width: '100%' }}>
                   {data.saleInfo.listPrice?.amount && data.saleInfo.retailPrice?.amount
                     ? data.saleInfo.listPrice?.amount > data.saleInfo.retailPrice?.amount && (
                         <span>
@@ -71,7 +87,7 @@ const BookDetailsCard = (data: BookDetailsProps) => {
             )}
             {data.saleInfo.saleability === 'FREE' && data.accessInfo.pdf.downloadLink && (
               <Link to={data.accessInfo.pdf.downloadLink} target="_blank">
-                <Button fourth>
+                <Button fourth style={{ width: '100%' }}>
                   <SiAdobeacrobatreader /> Download PDF
                 </Button>
               </Link>
@@ -108,7 +124,25 @@ const BookDetailsCard = (data: BookDetailsProps) => {
               </Button>
             </Link>
 
-            <Button secondary>Add to my books</Button>
+            <Button
+              secondary={buttonType === 'Add to My Books'}
+              fourth={buttonType === 'Remove from My Books'}
+              onClick={() => {
+                handleClick({
+                  id: data.id,
+                  volumeInfo: {
+                    publisher: data.volumeInfo.publisher || '',
+                    title: data.volumeInfo.title || '',
+                    authors: data.volumeInfo.authors || [],
+                    imageLinks: {
+                      thumbnail: data.volumeInfo.imageLinks?.thumbnail || '',
+                    },
+                  },
+                });
+              }}
+            >
+              {buttonType}
+            </Button>
           </div>
         </div>
       </div>

@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { BookProps } from '../../Types';
-import { fetchBooks } from '../thunks/fetchBooks';
+import { fetchCategories } from '../thunks/fetchCategories';
 
-const initialState: { books: BookProps[][]; isLoading: boolean } = {
+const initialState: { books: { [x: string]: BookProps[] }[]; isLoading: boolean } = {
   books: [],
   isLoading: false,
 };
@@ -12,13 +12,19 @@ const categoriesSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchBooks.pending, (state, action) => {
+    builder.addCase(fetchCategories.pending, (state, action) => {
+      const query = action.meta.arg.query;
+      if (action.meta.arg.source !== 'categories' || state.books.find((category) => category[query])) return;
       state.isLoading = true;
-      state.books = [];
     });
-    builder.addCase(fetchBooks.fulfilled, (state, action) => {
+    builder.addCase(fetchCategories.fulfilled, (state, action) => {
+      const query = action.meta.arg.query;
+      if (action.meta.arg.source !== 'categories' || state.books.find((category) => category[query])) return;
+
       state.isLoading = false;
-      state.books.push(action.payload);
+      state.books.push({
+        [action.meta.arg.query]: action.payload,
+      });
     });
   },
 });

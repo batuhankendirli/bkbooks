@@ -1,6 +1,4 @@
 import BookDetailsCard from '../components/BookDetailsCard';
-import { BookDetailsProps } from '../Types';
-import books from '../books.json';
 import BookDetailsCardSkeleton from '../components/BookDetailsCardSkeleton';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { useEffect } from 'react';
@@ -20,41 +18,43 @@ const BookDetails = () => {
       {isLoading ? (
         <BookDetailsCardSkeleton />
       ) : (
-        <BookDetailsCard
-          key={book[0]?.id}
-          id={book[0]?.id}
-          accessInfo={{
-            pdf: {
-              downloadLink: book[0]?.accessInfo.pdf.downloadLink,
-            },
-          }}
-          saleInfo={{
-            buyLink: book[0]?.saleInfo.buyLink,
-            saleability: book[0]?.saleInfo.saleability,
-            listPrice: {
-              amount: book[0]?.saleInfo.listPrice?.amount,
-              currencyCode: book[0]?.saleInfo.listPrice?.currencyCode,
-            },
-            retailPrice: {
-              amount: book[0]?.saleInfo.retailPrice?.amount,
-              currencyCode: book[0]?.saleInfo.retailPrice?.currencyCode,
-            },
-          }}
-          volumeInfo={{
-            authors: book[0]?.volumeInfo.authors,
-            pageCount: book[0]?.volumeInfo.pageCount,
-            previewLink: book[0]?.volumeInfo.previewLink,
-            publishedDate: book[0]?.volumeInfo.publishedDate,
-            publisher: book[0]?.volumeInfo.publisher,
-            title: book[0]?.volumeInfo.title,
-            subtitle: book[0]?.volumeInfo.subtitle,
-            categories: book[0]?.volumeInfo.categories,
-            description: book[0]?.volumeInfo.description,
-            imageLinks: {
-              thumbnail: book[0]?.volumeInfo.imageLinks?.thumbnail,
-            },
-          }}
-        />
+        book && (
+          <BookDetailsCard
+            key={book.id}
+            id={book.id}
+            accessInfo={{
+              pdf: {
+                downloadLink: book.accessInfo.pdf.downloadLink,
+              },
+            }}
+            saleInfo={{
+              buyLink: book.saleInfo.buyLink,
+              saleability: book.saleInfo.saleability,
+              listPrice: {
+                amount: book.saleInfo.listPrice?.amount,
+                currencyCode: book.saleInfo.listPrice?.currencyCode,
+              },
+              retailPrice: {
+                amount: book.saleInfo.retailPrice?.amount,
+                currencyCode: book.saleInfo.retailPrice?.currencyCode,
+              },
+            }}
+            volumeInfo={{
+              authors: book.volumeInfo.authors,
+              pageCount: book.volumeInfo.pageCount,
+              previewLink: book.volumeInfo.previewLink,
+              publishedDate: book.volumeInfo.publishedDate,
+              publisher: book.volumeInfo.publisher,
+              title: book.volumeInfo.title,
+              subtitle: book.volumeInfo.subtitle,
+              categories: book.volumeInfo.categories,
+              description: book.volumeInfo.description,
+              imageLinks: {
+                thumbnail: book.volumeInfo.imageLinks?.thumbnail,
+              },
+            }}
+          />
+        )
       )}
     </div>
   );

@@ -1,8 +1,7 @@
 import { BookDetailsProps } from '../Types';
 
-export const parseDetailedData = async ({ data }: { data: BookDetailsProps }) => {
-  const parsedData: BookDetailsProps[] = [];
-  parsedData.push({
+export const parseDetailedData = async (data: BookDetailsProps) => {
+  return {
     id: data.id,
     volumeInfo: {
       pageCount: data.volumeInfo.pageCount,
@@ -10,7 +9,7 @@ export const parseDetailedData = async ({ data }: { data: BookDetailsProps }) =>
       publisher: data.volumeInfo.publisher,
       title: data.volumeInfo.title,
       authors: data.volumeInfo.authors,
-      categories: data.volumeInfo.categories,
+      categories: data.volumeInfo?.categories,
       description: data.volumeInfo.description,
       imageLinks: {
         thumbnail: data.volumeInfo.imageLinks?.thumbnail,
@@ -29,12 +28,11 @@ export const parseDetailedData = async ({ data }: { data: BookDetailsProps }) =>
         currencyCode: data.saleInfo.listPrice?.currencyCode,
       },
       retailPrice: {
-        amount: data.saleInfo.retailPrice?.amount,
+        amount: data.saleInfo?.retailPrice?.amount,
         currencyCode: data.saleInfo.retailPrice?.currencyCode,
       },
       saleability: data.saleInfo.saleability,
       buyLink: data.saleInfo.buyLink,
     },
-  });
-  return parsedData;
+  };
 };

@@ -43,5 +43,79 @@
     display: flex;
     align-items: center;
     gap: 2.4rem;
+    position: relative;
+
+    &-img {
+      width: 3.2rem;
+      height: 3.2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      object-fit: cover;
+    }
+
+    &-user {
+      font-size: 2.8rem;
+      color: $color-text-tertiary;
+      transition: all 0.3s;
+      &:hover {
+        cursor: pointer;
+        color: #fff;
+      }
+
+      &-settings {
+        position: absolute;
+        overflow: hidden;
+        top: 3.6rem;
+        right: 0;
+        background-color: $color-bg-primary;
+        width: 15rem;
+        border-radius: $border-medium;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+          rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+        display: none;
+        z-index: 10;
+        &.show {
+          display: flex;
+          flex-direction: column;
+          gap: 1.6rem;
+        }
+
+        &-list {
+          display: flex;
+          flex-direction: column;
+          list-style: none;
+          &-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.6rem;
+            font-weight: 400;
+            font-family: inherit;
+            padding: 1.6rem 1.6rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            &:hover {
+              background-color: #e5e5e5;
+            }
+
+            &-icon {
+              font-size: 2.4rem;
+              color: $color-bg-secondary;
+              transition: all 0.3s;
+            }
+
+            &:hover &-icon.books {
+              transform: scale(1.07);
+            }
+            &:hover &-icon.gear {
+              transform: rotate(45deg);
+            }
+            &:hover &-icon.logout {
+              transform: translateX(0.2rem);
+            }
+          }
+        }
+      }
+    }
   }
 }

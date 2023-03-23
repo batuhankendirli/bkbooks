@@ -2,8 +2,30 @@ import { Link } from 'react-router-dom';
 import Button from './Button';
 import LazyLoad from 'react-lazy-load';
 import { BookProps } from '../Types';
+import { addBook, removeBook } from '../store/thunks/firebase';
+import { useAppSelector } from '../store/hooks';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const BookCard = ({ data }: { data: BookProps }) => {
+  const [buttonType, setButtonType] = useState<string>('Add');
+  const { uid, savedBooks } = useAppSelector((state) => state.user);
+
+  useEffect(() => {
+    savedBooks?.some((book) => book.id === data.id) ? setButtonType('Remove') : setButtonType('Add');
+  }, [savedBooks]);
+
+  const handleClick = async (data: BookProps) => {
+    if (uid) {
+      buttonType === 'Add' ? await addBook(data) : await removeBook(data);
+    } else {
+      toast.error('Hold it right there! You should log in first.', {
+        autoClose: 5000,
+        toastId: 'login',
+      });
+    }
+  };
+
   return (
     <div className="book-card">
       <Link to={`/book/${data.id}`} className="book-card-img">
@@ -24,8 +46,26 @@ const BookCard = ({ data }: { data: BookProps }) => {
         </i>
       </div>
 
-      <Button primary rounded className="book-card-btn">
-        Add
+      <Button
+        primary={buttonType === 'Add'}
+        rounded
+        fourth={buttonType === 'Remove'}
+        className="book-card-btn"
+        onClick={() =>
+          handleClick({
+            id: data.id,
+            volumeInfo: {
+              publisher: data.volumeInfo.publisher || '',
+              title: data.volumeInfo.title || '',
+              authors: data.volumeInfo.authors || [],
+              imageLinks: {
+                thumbnail: data.volumeInfo.imageLinks?.thumbnail || '',
+              },
+            },
+          })
+        }
+      >
+        {buttonType}
       </Button>
     </div>
   );

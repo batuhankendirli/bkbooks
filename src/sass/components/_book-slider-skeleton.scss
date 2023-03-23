@@ -1,0 +1,11 @@
+.book-slider-skeleton {
+  height: 50rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &-header {
+    height: 4.8rem;
+    width: 20rem;
+    border-radius: $border-medium;
+  }
+}
